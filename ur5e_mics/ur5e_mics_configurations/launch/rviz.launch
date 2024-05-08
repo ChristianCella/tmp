@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-
-<launch>
-<include file="$(find ur5e_mics_moveit_config)/launch/moveit_rviz.launch" >
-  <arg name="rviz_config" value="$(find ur5e_mics_moveit_config)/launch/moveit.rviz"/>
-</include>
-
-</launch>

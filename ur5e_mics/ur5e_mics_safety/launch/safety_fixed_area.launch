@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<launch>
-
-<rosparam file="$(find ur5e_mics_safety)/config/fixed_areas.yaml" command="load"/>
-
-<node pkg="fixed_areas_ssm" type="fixed_areas_ssm_node" name="safety_area" output="screen">
-</node>
-
-</launch>
