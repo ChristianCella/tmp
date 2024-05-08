@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<launch>
+  <arg name="dynamic_safety" default="true"/>
+  <arg name="launch_camera" default="false"/>
+
+  <include if="$(arg dynamic_safety)"     file="$(find ur5e_mics_safety)/launch/safety_dynamic.launch"/>
+  <include unless="$(arg dynamic_safety)" file="$(find ur5e_mics_safety)/launch/safety_fixed_area.launch"/>
+
+  <!--
+  <include if="$(arg launch_camera)" file="$(find ur5e_mics_perception)/launch/vision.launch"/>
+  <include if="$(arg launch_camera)" file="$(find ur5e_mics_perception)/launch/realsense.launch"/>
+  
+
+  <include file="$(find ur5e_mics_perception)/launch/centroid.launch">
+    <arg name="remote_pc" value="$(arg launch_camera)"/>
+  </include>
+  -->
+
+</launch>

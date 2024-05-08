@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<launch>
+  <arg name="pipeline" default="dirrt" />
+  <arg name="debug" default="false" />
+  <arg name="use_rviz" default="true" />
+  <arg name="moveit_controller_manager" default="simple" />
+  <arg name="rviz_config" default="$(find ur5e_mics_bringup)/config/control.rviz"/>
+
+<!--<node pkg="object_loader" name="context_manager_node" type="context_manager_node" respawn="true" output="screen"/>-->
+
+<include file="$(find ur5e_mics_moveit_config)/launch/move_group.launch">
+  <arg name="allow_trajectory_execution" value="true"/>
+  <arg name="info" value="true"/>
+  <arg name="debug" value="$(arg debug)"/>
+  <arg name="pipeline" value="$(arg pipeline)"/>
+  <arg name="moveit_controller_manager" value="$(arg moveit_controller_manager)"/>
+</include>
+
+<include file="$(find ur5e_mics_moveit_config)/launch/moveit_rviz.launch" if="$(arg use_rviz)">
+  <arg name="rviz_config" value="$(arg rviz_config)"/>
+  <arg name="debug" value="$(arg debug)"/>
+</include>
+
+</launch>

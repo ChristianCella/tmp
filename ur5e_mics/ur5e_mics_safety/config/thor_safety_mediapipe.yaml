@@ -1,0 +1,5 @@
+# merge tof_cameras wrt to reference_frame
+tof_cameras:
+- /camera
+- /camera2
+reference_frame: "world"
